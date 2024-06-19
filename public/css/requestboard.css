@@ -1,0 +1,114 @@
+/* body {
+    margin: 0;
+} */
+
+/*~~~~~~~~~~~~~Card~~~~~~~~*/
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    justify-content: flex-start;
+    /* Align to the left */
+}
+
+/*spading between lines(up/down)*/
+.col-md-3 {
+    margin-bottom: 20px;
+}
+
+.card {
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid #a8d46f;
+}
+
+/* .card img:hover {
+    transform: scale(4);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    transform: translate(-50%, -50%) scale(4);
+    z-index: 1000; 
+} */
+
+
+
+.image {
+    width: 100%;
+    /* set fixed width */
+    height: 150px;
+    /*fixed height, in order to within the card image*/
+    object-fit: contain;
+    /* Maintain the aspect ratio */
+
+}
+
+ul {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+}
+
+.card-footer {
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+
+/*Submit button*/
+.btn {
+    display: block;
+    width: 80%;
+    height: 40px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #BBFFBB, #a8d46f, #32be8f);
+    background-size: 200%;
+    font-size: 0.8rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn:hover {
+    background-position: right;
+}
+
+.request-box {
+    margin-top: 80px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.custom-btn, .clearbtn {
+    display: block;
+    width: 80%;
+    height: 40px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #BBFFBB, #a8d46f, #32be8f);
+    background-size: 200%;
+    font-size: 0.8rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: .5s;
+
+}
+
+.custom-border {
+    border: 2px solid #a8d46f;
+
+}
+
+.custom-btn:hover, .clearbtn:hover {
+    background-position: right;
+    color: black; 
+}

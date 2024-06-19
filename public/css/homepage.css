@@ -1,0 +1,230 @@
+/*~~~~~~~~~~~~~~~~~~~green background area~~~~~~~~~~~~~~~~~~~*/
+/*green background*/
+.header_top_wrap {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	height: 545px;
+	margin: 0 auto;
+	background: #a8d46f;
+	border-top: 4px solid #34322a;
+	z-index: -9999;
+}
+
+/*fixed green background*/
+.home_page {
+    margin: 549px auto 0;
+}
+
+
+/* deliveryMate logo (green area)*/
+h1 {
+	text-align: center;
+	color: #444135;
+	padding: 0;
+	height: 410px;
+	background: url(../images/dm.png) center 50px no-repeat;
+	text-indent: -9999em;
+	overflow: hidden;
+}
+
+/*slogan*/
+.slogan {
+	font-size: 24px;
+	line-height: 24px;
+	color: #fff;
+	text-align: center;
+}
+
+/*~~~~~~~~~~~~~~~~~~~header ~~~~~~~~~~~~~~~~~~~*/
+/*navbar header sticky on the top*/
+header.scrolled {
+	position: sticky;
+}
+
+header {
+	position: relative;
+	background-color: #fff;
+	margin: 0 auto;
+	width: 100%;
+	height: 60px;
+	top: 0;
+	left: 0;
+	-webkit-box-shadow: 0 1px 5px -1px #333;
+	-moz-box-shadow: 0 1px 5px -1px #333;
+	box-shadow: 0 1px 5px -1px #333;
+	clear: both;
+	z-index: 99;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~main area~~~~~~~~~~~~~~~~~~~*/
+/*main area fill white background*/
+.container-fill {
+	float: left;
+	width: 100%;
+	margin: 0 auto;
+	background: #f2f2e8;
+	display: block;
+}
+
+/*What is DeliveryMate?  font and size*/
+h3 {
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, serif;
+	font-style: normal;
+	font-size: 48px;
+	text-align: center;
+	padding: 80px 0 8px;
+
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~public~~~~~~~~~~~~~~~~~~~*/
+body,
+div {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	background: transparent;
+}
+
+
+p {
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, serif;
+	font-style: normal;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~ gallery ~~~~~~~~~~~~~~~~~~~~*/
+/*gallery top padding*/
+.gallery_wrapper {
+	padding: 60px 0 0;
+}
+
+/*pic1 left position*/
+.pic_1 {
+	margin-left: 140px;
+}
+
+/*spacing between top and bottom pic*/
+.pic_4,
+.pic_5,
+.pic_6,
+.pic_7 {
+	margin-top: -65px;
+	padding: 0 0 100px;
+}
+
+/*hover background*/
+.pic figure {
+	position: relative;
+}
+
+/*hover background and position*/
+.pic figcaption {
+	background: url(../images/pic_bg.png) left top no-repeat;
+	background-size: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	z-index: 9;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	padding: 80px 30px 0;
+	text-align: center;
+}
+
+/*hover*/
+.pic figure:hover figcaption {
+	opacity: 1;
+}
+
+/*hover area: "p" font color*/
+.pic figcaption p {
+	margin: 0 0 0;
+	color: #f2f2e8;
+}
+
+/*hover area: "h6" font color*/
+.pic figcaption h6 {
+	padding-top: 18px;
+	color: #a8d46f;
+}
+
+/*spacing between left and right of pic*/
+.pic_1,
+.pic_2,
+.pic_3,
+.pic_4,
+.pic_5,
+.pic_6 {
+	margin-right: 20px;
+}
+
+
+/*gallery of large screen*/
+@media screen and (min-width: 992px) {
+	.pic_1 {
+		margin-left: 140px;
+	}
+
+	.pic_4,
+	.pic_5,
+	.pic_6,
+	.pic_7 {
+		margin-top: -50px;
+	}
+
+	.pic figcaption {
+		padding: 100px 25px 0;
+	}
+}
+
+/*gallery of medium screen*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	.pic_1, .pic_3,.pic_5,.pic_7 {
+		margin-left: 115px;
+	}
+
+	.pic_4,
+	.pic_5,
+	.pic_6,
+	.pic_7 {
+		margin-top: 0px;
+	}
+
+	.pic figcaption {
+		padding: 100px 15px 0;
+	}
+}
+/*gallery of small screen*/
+@media screen and (max-width: 767px) {
+	
+	.pic_1{
+		margin-left:0;
+	}
+	.pic_4, .pic_5, .pic_6, .pic_7 {
+		margin-top:0;
+	}
+	.pic {
+		float:left;
+		width:45%;
+		margin-right:5%;
+		margin-bottom:15px;
+	}
+	.pic img {
+		width:100%;
+	}
+	.pic figcaption {
+		padding:25% 15px 0;
+	}
+}

@@ -1,0 +1,40 @@
+{
+  "name": "deliverymate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eswar-S-Sethu/DeliveryMate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eswar-S-Sethu/DeliveryMate/issues"
+  },
+  "homepage": "https://github.com/Eswar-S-Sethu/DeliveryMate#readme",
+  "dependencies": {
+    "bad-words": "^3.0.0",
+    "bcrypt": "^5.1.1",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "faker": "^6.6.6",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "mocha": "^10.2.0",
+    "mongoose": "^8.0.4",
+    "nodemailer": "^6.9.9",
+    "request": "^2.88.2",
+    "socket.io": "^4.7.4"
+  },
+  "devDependencies": {
+    "mongoose": "^8.0.4",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.2"
+  }
+}

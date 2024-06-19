@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.chat-container {
+    position: relative;
+    width: 320px;
+    height: 500px;
+    overflow: hidden;
+    background: #ededed;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+    margin: 0px auto;
+}
+
+
+body {
+    font-size: 14px
+}
+
+.main {
+
+    overflow-y: auto;
+    height: calc(100% - 40px); /* height - height of foot */
+}
+
+.main ul {
+    padding: 20px 30px;
+    list-style: none;
+}
+
+.main li {
+    padding: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.main .time {
+    font: size 12px;
+    text-align: center;
+    line-height: 20px;
+    color: #999;
+}
+
+
+.main li span {
+    display: inline-block;
+    border-radius: 7px;
+    background-color: #a8d46f;
+    padding: 6px 10px 8px 10px;
+    position: relative;
+    overflow-wrap: break-word;
+}
+
+/*left profile image*/
+.main li.text-left:before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border-radius: 3px;
+    display: block;
+    background: url(../images/profileimg.png) no-repeat center center;
+    background-size: 100%;
+    position: absolute;
+    left: -25px;
+    top: 28px;
+}
+/*left bubble color*/
+.main li.text-left span {
+    background-color: white;
+}
+
+/*right profile image*/
+.main li.text-right:before {
+    content: '';
+    width: 22px;
+    height: 25px;
+    border-radius: 3px;
+    display: block;
+    background: url(../images/profileimg1.png) no-repeat center center;
+    background-size: 100%;
+    position: absolute;
+    right: -25px;
+    top: 5px;
+}
+
+/*bubble right*/
+.text-right {
+    text-align: right;
+}
+
+/*bubble right and text, color*/
+.main li.text-right span {
+    text-align: left;
+    background-color: #a8d46f;
+    border-radius: 7px;
+    padding: 6px 5px 6px 8px;
+    position: relative;
+    max-width: 200px; /* maximum width of the bubble*/
+    overflow-wrap: break-word; /*Ensures that long words and URLs are broken to prevent overflow.*/
+    display: inline-block; 
+}
+
+.head-text {
+    line-height: 30px;
+    color: #fff;
+    border-radius: 5px 5px 5px 5px;
+    padding: 0 20px;
+    font-weight:200px;
+    font-size: 18px;
+	background-image: linear-gradient(to right, #32be8f, #a8d46f, #BBFFBB );
+}
+
+.foot {
+    width: 320px;
+    box-sizing: border-box;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f7f7f7;
+
+}
+
+.foot input {
+    width: 90%;
+    height: 30px;
+    border: none;
+    text-indent: 5px;
+    outline: medium;
+}
+
+/*Send logo size*/
+.foot span {
+    width: 22px;
+    height: 22px;
+}
+
+.send {
+    background: url(../images/send.png) no-repeat center center;
+    background-size: 100%;
+
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*left corner click box*/
+#click {
+    display: none;
+}
+
+/*small logo get form awesome font*/
+label {
+    position: absolute;
+    right: 30px;
+    bottom: 60px;
+    height: 50px;
+    width: 50px;
+    background: linear-gradient(to right, #32be8f, #a8d46f);
+    text-align: center;
+    line-height: 55px;
+    border-radius: 50px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+} 
+
+.label i.far, i.fas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+label i.far {
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+
+
+#click:checked~label i.fas {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+#click:checked~label i.far {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.wrapper {
+    position: absolute;
+    right: 40px;
+    bottom:0;
+    max-width: 320px;
+    height: 500px;
+    background: #ededed;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#click:checked~.wrapper {
+    opacity: 1;
+    bottom: 135px;
+    pointer-events: auto;
+}
