@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create request</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/createrequest.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://kit.fontawesome.com/8f7af94377.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
+        style="background-image: linear-gradient(to right, #BBFFBB, #a8d46f, #32be8f); display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div class="container">
+            <a class="navbar-brand" href="#">DeliveryMate</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Notification icon added here -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/notification" class="current">
+                            <i class="fas fa-bell"></i> <!-- Font Awesome bell icon -->
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                        <!-- a visually hidden span element used for screen reader accessibility -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/new-request">New Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/request-management">Request Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accepted-request">Accepted Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account-management">Account Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Login</a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+    <br><br><br>
+
+    <section class="container py-3">
+        <div class="col">
+            <div class="card h-100 border-secondary-subtle custom-card">
+                <div class="card-header">
+                    <h5 class="newreq">Create Request</h5>
+                </div>
+                <form id="deliveryRequestForm">
+
+                    <section class="container py-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card h-100 border">
+                                    <div class="card-body">
+                                        <h5 class="newreq">Image</h5>
+                                        <div class="card-body" style="min-height: 200px;">
+                                            <img id="previewImage" src="" alt="Selected Image"
+                                                style="max-width: 100%; max-height: 100%;">
+                                        </div>
+                                        <input type="file" class="form-control mb-3 border-0" id="fileInput"
+                                            onchange="previewSelectedImage()">
+                                        <!-- <div class="col-md-8 d-flex align-items-center justify-content-end">
+                                            <button class="btn btn-primary mt-3" onclick="uploadImage()">Upload</button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="card h-100 border-secondary-subtle">
+
+                                    <div class="card-body">
+                                        <h5 class="newreq">Request Details</h5>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label for="inputName" class="col-form-label">Item name</label>
+                                                <input type="text" class="form-control" id="inputName" name="inputName"
+                                                    placeholder="tote bag" required>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label for="inputWeight" class="col-form-label">Weight </label>
+                                                <input type="text" class="form-control" id="inputWeight"
+                                                    name="inputWeight" placeholder="0.5kg" required>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label for="inputSize" class="col-form-label">Size </label>
+                                                <input type="text" class="form-control" id="inputSize" name="inputSize"
+                                                    placeholder="small/medium/large" required>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label for="itemDestination" class="col-form-label">Destination</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="itemDestination"
+                                                        name="itemDestination" placeholder="Select on map" readonly>
+                                                    <div class="input-group-append">
+                                                        <button type="button" class="btn btn-primary"
+                                                            onclick="openMap('itemDestination')">Choose on Map</button>
+                                                    </div>
+                                                </div>
+                                                <!-- Hidden input fields for latitude and longitude -->
+                                                <input type="hidden" id="itemDestinationLatitude"
+                                                    name="itemDestinationLatitude">
+                                                <input type="hidden" id="itemDestinationLongitude"
+                                                    name="itemDestinationLongitude">
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label for="itemPickup" class="col-form-label">Pick-up point</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="itemPickup"
+                                                        name="itemPickup" placeholder="Select on map" readonly>
+                                                    <div class="input-group-append">
+                                                        <button type="button" class="btn btn-sm btn-primary"
+                                                            onclick="openMap('itemPickup')">Choose on Map</button>
+                                                    </div>
+                                                </div>
+                                                <!-- Hidden input fields for latitude and longitude -->
+                                                <input type="hidden" id="itemPickupLatitude" name="itemPickupLatitude">
+                                                <input type="hidden" id="itemPickupLongitude"
+                                                    name="itemPickupLongitude">
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label for="inputtips" class="col-form-label">Tips </label>
+                                                <input type="text" class="form-control" id="inputtips" name="inputtips"
+                                                    placeholder="tips" required>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label for="inputnotes" class="col-form-label">Notes </label>
+                                                <input type="text" class="form-control" id="inputnotes"
+                                                    name="inputnotes"
+                                                    placeholder="4:00 pm at front door of Deakin library" required>
+                                            </div>
+                                        </div>
+                    </section>
+
+                    <div class="row mt-2 justify-content-end">
+                        <div class="col-2">
+                            <button class="subbtn" type="submit" >Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row mt-3">
+                    <!-- Displaytime -->
+                    <div class="col-12" id="submissionTimeDisplay"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- Map Modal -->
+    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mapModalLabel">Choose Location on Map</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="map" style="height: 400px;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/js/createrequest.js"></script>
+    <script src="/js/userDetailsFetch.js"></script>
+
+</body>
+
+</html>

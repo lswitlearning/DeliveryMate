@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Management</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <style>
+        body {
+            overflow-x: hidden;
+            padding-top: 50px;
+        }
+
+        #requestDetails {
+            margin: 20px;
+        }
+
+        #mapCard {
+            margin: 20px;
+            max-width: 600px;
+            /* Limit the maximum width of the card */
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+
+        #map {
+            height: 300px;
+            /* Adjust the height as needed */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
+        style="background-image: linear-gradient(to right, #BBFFBB, #a8d46f, #32be8f); display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div class="container">
+            <a class="navbar-brand" href="/home">DeliveryMate</a>
+            <div class="navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Notification icon added here -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/notification" class="current">
+                            <i class="fas fa-bell"></i> <!-- Font Awesome bell icon -->
+                        </a>
+                    </li>
+                    <!-- Other navbar items -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/new-request">New Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/request-management">Request Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accepted-request">Accepted Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account-management">Account Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ... (previous HTML code) ... -->
+
+    <div class="card" id="requestDetails">
+        <div class="card-body">
+            <a class="btn btn-primary mb-3" href="javascript:history.back()">Back</a>
+
+            <!-- Add item image here -->
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="" alt="Item Image" id="itemImage" style="max-width: 100%;">
+                </div>
+                <div class="col-md-9">
+                    <h2>Request Details</h2>
+                    <p><strong>Item Name:</strong> <span id="itemName"></span></p>
+                    <p><strong>Requested User Details:</strong> <span id="userDetails"></span></p>
+                    <p><strong>Item Destination:</strong> <span id="itemDestination"></span></p>
+                    <p><strong>Item Pickup:</strong> <span id="itemPickup"></span></p>
+                    <p><strong>Item Weight:</strong> <span id="itemWeight"></span></p>
+                    <p><strong>Item Size:</strong> <span id="itemSize"></span></p>
+                    <p><strong>Item Tips:</strong> <span id="itemTips"></span></p>
+                    <p><strong>Item Notes:</strong> <span id="itemNotes"></span></p>
+                    <p><strong>Submission Time:</strong> <span id="submissionTime"></span></p>
+                    <p><strong>Status:</strong> <span id="status"></span></p>
+                  
+                    <!-- Add more placeholders as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Leaflet Map -->
+    <div class="card" id="mapCard">
+        <div class="card-body text-center">
+            <h2 class="card-title">Location Map</h2>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/requestById/requestById.js"></script>
+</body>
+
+</html>

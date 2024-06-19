@@ -1,0 +1,40 @@
+.newreq{
+    text-align: center;
+}
+
+.custom-card {
+    padding: 10px;
+}
+
+.card, .col-md-4{
+    border-radius: 8px;
+    border: 2px solid #a8d46f;
+}
+
+
+/*Submit button*/
+.subbtn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #BBFFBB, #a8d46f, #32be8f);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.subbtn:hover{
+	background-position: right;
+}
+
+.ctbox{
+	margin-top: 80px; 
+}

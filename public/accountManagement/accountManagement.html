@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        .btn{
+        display: block;
+        width: 150px;
+        height: 40px;
+        border-radius: 25px;
+        outline: none;
+        border: none;
+        background-image: linear-gradient(to right, #BBFFBB, #a8d46f, #32be8f);
+        background-size: 200%;
+        font-size: 0.8rem;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        margin: 5px;
+        cursor: pointer;
+        transition: .5s;
+    }
+
+.btn:hover{
+	    background-position: left;
+    }
+    </style>
+   
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
+        style="background-image: linear-gradient(to right, #BBFFBB, #a8d46f, #32be8f); display: flex; justify-content: space-between; margin-bottom: 20px;">
+    <div class="container">
+        <a class="navbar-brand" href="#">DeliveryMate</a>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                 <!-- Notification icon added here -->
+                 <li class="nav-item active">
+                    <a class="nav-link" href="/notification" class="current">
+                        <i class="fas fa-bell"></i> <!-- Font Awesome bell icon -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home" class="current">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/new-request">New Request</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/request-management">Request Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/accepted-request">Accepted Request</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/account-management">Account Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+<!-- Account Management Card -->
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="mb-0">Account Details</h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <input type="text" id="firstname" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <input type="text" id="lastname" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" class="form-control" readonly>
+            </div>
+            <button class="btn btn-success" data-toggle="modal" data-target="#editModal">Edit</button>
+        </div>
+
+        <div class="card-body">
+            <button class="btn btn-success" data-toggle="modal" data-target="#passwordChangeModal">Change Password</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit Modal -->
+<div class="modal" id="editModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Profile</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="editFirstname">Firstname</label>
+                    <input type="text" id="editFirstname" class="form-control" placeholder="Firstname">
+                </div>
+                <div class="form-group">
+                    <label for="editLastname">Lastname</label>
+                    <input type="text" id="editLastname" class="form-control" placeholder="Lastname">
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">Email</label>
+                    <input type="email" id="editEmail" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="editPhone">Phone</label>
+                    <input type="tel" id="editPhone" class="form-control" placeholder="Phone">
+                </div>
+                <button class="btn btn-success" onclick="saveChanges()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Password Change Modal -->
+<div class="modal fade" id="passwordChangeModal" tabindex="-1" role="dialog" aria-labelledby="passwordChangeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="passwordChangeModalLabel">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Password Change Form -->
+                <form>
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
+                    </div>
+                    <button type="submit" class="btn btn-success" onclick="changePassword()">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js CDN -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded",function(){
+        fetchUserData();
+
+    async function fetchUserData(){
+        const authToken=localStorage.getItem('token');
+        try{
+            const response=await fetch('/api/user/currentUser',{
+                method:'GET',
+                headers:{
+                    'Authorization':`${authToken}`
+                }
+            });
+
+            if(!response.ok){
+                throw new Error('Failed to fetch user data');
+            }
+
+            const userData=await response.json();
+
+            // populate the data 
+            document.getElementById('firstname').value=userData.data.firstname;
+            document.getElementById('lastname').value=userData.data.lastname;
+            document.getElementById('email').value=userData.data.email;
+            document.getElementById('phone').value=userData.data.phonenumber;
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+    })
+    
+    function saveChanges() {
+        // Add logic for saving changes
+        const newFirstname=document.getElementById('editFirstname').value;
+        const newLastname=document.getElementById('editLastname').value;
+        const newEmail=document.getElementById('editEmail').value;
+        const newPhone=document.getElementById('editPhone').value;
+
+        const data={newFirstname:newFirstname,newLastname:newLastname,newEmail:newEmail,newPhone:newPhone};
+
+        updateData(data);
+    }
+    function changePassword(){
+        // logic for saving new password
+        const currentPassword = document.getElementById('currentPassword').value;
+        const newPassword = document.getElementById('newPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        // do a little validation
+        if (newPassword !== confirmPassword) {
+            alert('New password and confirm password do not match.');
+            return;
+        }
+        const data={currentPassword:currentPassword,newPassword:newPassword};
+
+        sendData(data);
+
+    }
+
+    async function sendData(data){
+
+        const authToken=localStorage.getItem('token');
+
+        try {
+
+            const response = await fetch('/api/user/change-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `${authToken}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            console.log(result.message);
+            alert("Password changed successfully");
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again later.');
+        }
+
+    }
+    async function updateData(data){
+        const authToken=localStorage.getItem('token');
+
+        try{
+            const response=await fetch('/api/user/changeuserDetails',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':`${authToken}`
+                },
+                body:JSON.stringify(data)
+            });
+
+            const result=await response.json();
+
+            console.log(result.message);
+            // add further actions. UI actions like, a toast message
+        }
+        catch(error){
+            console.log("Error",error);
+            alert("An error occurred. please check the console");
+        }
+    }
+</script>
+
+</body>
+</html>
